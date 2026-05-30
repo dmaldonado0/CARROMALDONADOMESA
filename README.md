@@ -55,19 +55,35 @@ El sistema físico está compuesto por los siguientes elementos electrónicos:
 
 Arduino UNO como unidad principal de procesamiento.
 
+![image alt](https://github.com/dmaldonado0/CARROMALDONADOMESA/blob/main/ARDU.png)
+
 Sensor de color TCS3200 para la detección de colores mediante lectura RGB.
+
+![image alt](https://github.com/dmaldonado0/CARROMALDONADOMESA/blob/main/SENS.jpeg)
 
 Driver L298N para el control de velocidad y dirección de los motores.
 
+![image alt](https://github.com/dmaldonado0/CARROMALDONADOMESA/blob/main/LCN.webp)
+
 Dos motores DC encargados de la locomoción del vehículo.
+
+![image alt](https://github.com/dmaldonado0/CARROMALDONADOMESA/blob/main/MOTOSSSSSSSS.jpg)
 
 Chasis robótico móvil como estructura de soporte.
 
+![image alt](https://github.com/dmaldonado0/CARROMALDONADOMESA/blob/main/KIT.webp)
+
 LEDs indicadores para la visualización local de los colores detectados.
+
+![image alt](https://github.com/dmaldonado0/CARROMALDONADOMESA/blob/main/LRD.webp)
 
 Portabaterías para la alimentación del sistema.
 
+![image alt](https://github.com/dmaldonado0/CARROMALDONADOMESA/blob/main/Portabater%C3%ADas%20para%204%20pilas%2018650.%20En%20paralelo.jpg)
+
 Baterías AA o baterías recargables tipo 18650.
+
+![image alt](https://github.com/dmaldonado0/CARROMALDONADOMESA/blob/main/18.jpeg)
 
 Cableado y elementos de conexión.
 
@@ -356,9 +372,7 @@ Estas optimizaciones permitieron obtener una detección más rápida, precisa y 
 
 ## VIDEO FUNCIONAMIENTO:
 
-
-
-
+https://unipanamericanaeduco-my.sharepoint.com/:f:/g/personal/danielamaldonado_ucompensar_edu_co/IgD0dz7WId3BQb2n8sBWqj1KAdguYiyJP1YMI7jyml-FJnM?e=yju6PV
 
 ## CODIGO PYTHON-STREAMLIT
 ```
@@ -874,5 +888,11 @@ La implementación de la interfaz desarrollada en Python y Streamlit aporta múl
 
 Gracias a esta integración, el vehículo autónomo no solo es capaz de detectar colores y ejecutar movimientos, sino también de comunicar su estado y funcionamiento de forma clara, visual e intuitiva.
 
+## Arquitectura General del Sistema
+
+![image alt](https://github.com/dmaldonado0/CARROMALDONADOMESA/blob/main/07f58145-184e-4859-a5a6-9dc218f21dfa.png)
+
+
 ## VIDEO FUNCIONAMIENTO:
 
+https://unipanamericanaeduco-my.sharepoint.com/:f:/g/personal/danielamaldonado_ucompensar_edu_co/IgD0dz7WId3BQb2n8sBWqj1KAdguYiyJP1YMI7jyml-FJnM?e=yju6PV
