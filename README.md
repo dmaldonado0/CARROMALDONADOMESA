@@ -22,7 +22,7 @@ Diego Alejandro Barragan Vargas
 BOGOTA D.C
 2026
 
-Descripción del Proyecto
+## Descripción del Proyecto
 
 Este proyecto presenta el diseño e implementación de un vehículo autónomo inteligente capaz de identificar diferentes colores mediante el sensor TCS3200 y ejecutar acciones específicas de navegación según el color detectado. El sistema integra componentes electrónicos, programación embebida y herramientas de desarrollo de software para crear una solución interactiva y funcional.
 
@@ -32,12 +32,12 @@ Como complemento al sistema físico, se desarrolló una interfaz gráfica utiliz
 
 Este trabajo representa una integración práctica de conceptos relacionados con sistemas embebidos, automatización, procesamiento de señales, comunicación serial y desarrollo de interfaces gráficas, demostrando cómo el hardware y el software pueden combinarse para construir soluciones tecnológicas capaces de interactuar con su entorno.
 
-🎯 Objetivos
-Objetivo General
+## Objetivos
+- Objetivo General
 
 Diseñar e implementar un vehículo autónomo capaz de detectar colores y ejecutar acciones específicas de movimiento mediante la integración de sensores, actuadores, sistemas embebidos e interfaces gráficas de monitoreo.
 
-Objetivos Específicos
+- Objetivos Específicos
 Implementar un sistema de reconocimiento de colores utilizando el sensor TCS3200 basado en el análisis de componentes RGB.
 Procesar los datos capturados por el sensor mediante un Arduino UNO para la toma de decisiones en tiempo real.
 Controlar el movimiento de motores DC utilizando el driver L298N para ejecutar desplazamientos y cambios de dirección.
@@ -47,21 +47,31 @@ Implementar un chatbot interactivo que permita consultar información relacionad
 Integrar hardware y software en una única solución capaz de operar de manera autónoma.
 Aplicar conocimientos de electrónica, programación, automatización y desarrollo de aplicaciones en un entorno práctico de aprendizaje.
 Evaluar el desempeño del sistema mediante pruebas de detección y seguimiento sobre diferentes superficies y condiciones de iluminación.
-🛠️ Tecnologías Utilizadas
-Hardware
+
+### Tecnologías Utilizadas:
+Hardware:
 
 El sistema físico está compuesto por los siguientes elementos electrónicos:
 
 Arduino UNO como unidad principal de procesamiento.
+
 Sensor de color TCS3200 para la detección de colores mediante lectura RGB.
+
 Driver L298N para el control de velocidad y dirección de los motores.
+
 Dos motores DC encargados de la locomoción del vehículo.
+
 Chasis robótico móvil como estructura de soporte.
+
 LEDs indicadores para la visualización local de los colores detectados.
+
 Portabaterías para la alimentación del sistema.
+
 Baterías AA o baterías recargables tipo 18650.
+
 Cableado y elementos de conexión.
-Software
+
+Software:
 
 El desarrollo del sistema se realizó utilizando las siguientes herramientas:
 
@@ -96,9 +106,6 @@ int redFrequency = 0;
 int greenFrequency = 0;
 int blueFrequency = 0;
 
-// ==========================
-// PROMEDIO DE SENSOR (CLAVE)
-// ==========================
 int leerSensor(int s2, int s3) {
 
   long suma = 0;
@@ -142,9 +149,6 @@ void setup() {
   Serial.begin(9600);
 }
 
-// ==========================
-// MOTORES (YA INVERTIDO OK)
-// ==========================
 void adelante() {
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, HIGH);
@@ -166,9 +170,6 @@ void izquierda() {
   digitalWrite(IN4, LOW);
 }
 
-// ==========================
-// LEDS
-// ==========================
 void apagarLEDs() {
   digitalWrite(LED_ROJO, LOW);
   digitalWrite(LED_VERDE, LOW);
@@ -177,12 +178,8 @@ void apagarLEDs() {
   digitalWrite(LED_NEGRO, LOW);
 }
 
-// ==========================
-// LOOP
-// ==========================
 void loop() {
 
-  // LECTURA ESTABLE
   redFrequency = leerSensor(LOW, LOW);
   greenFrequency = leerSensor(HIGH, HIGH);
   blueFrequency = leerSensor(LOW, HIGH);
@@ -196,10 +193,6 @@ void loop() {
 
   apagarLEDs();
 
-  // ==========================
-  // DETECCIÓN POR DISTANCIA
-  // (más estable que rangos)
-  // ==========================
 
   int scoreBlanco = abs(redFrequency - 70) + abs(greenFrequency - 80) + abs(blueFrequency - 60);
   int scoreAzul   = abs(redFrequency - 175) + abs(greenFrequency - 160) + abs(blueFrequency - 108);
@@ -227,9 +220,6 @@ void loop() {
     color = "VERDE";
   }
 
-  // ==========================
-  // CONTROL
-  // ==========================
 
   if (color == "BLANCO") {
 
@@ -266,11 +256,11 @@ void loop() {
 }
 ```
 
-# ⚙️ Funcionamiento del Algoritmo de Detección y Navegación
+# Funcionamiento del Algoritmo de Detección y Navegación
 
 El programa desarrollado para Arduino es el encargado de coordinar todas las operaciones del vehículo autónomo, incluyendo la lectura del sensor de color, la identificación de colores, el control de motores y la comunicación con la interfaz de monitoreo.
 
-## 📡 Adquisición de Datos del Sensor TCS3200
+## Adquisición de Datos del Sensor TCS3200
 
 El sensor TCS3200 trabaja convirtiendo la intensidad de luz reflejada por una superficie en señales de frecuencia. Para identificar correctamente un color, el sistema realiza lecturas independientes de los componentes:
 
@@ -284,7 +274,7 @@ Este proceso permite obtener datos más precisos y consistentes durante el despl
 
 ---
 
-## 🎨 Identificación Inteligente de Colores
+## Identificación Inteligente de Colores
 
 A diferencia de los métodos tradicionales basados únicamente en rangos fijos de valores RGB, este proyecto utiliza una estrategia basada en distancia matemática.
 
@@ -305,7 +295,7 @@ Para los colores Rojo y Verde se utiliza una comparación directa entre componen
 
 ---
 
-## 🚗 Sistema de Navegación del Vehículo
+## Sistema de Navegación del Vehículo
 
 Una vez identificado el color, el microcontrolador ejecuta una acción específica mediante el driver L298N, encargado de controlar los motores del vehículo.
 
@@ -336,7 +326,7 @@ Esto proporciona una retroalimentación visual inmediata sobre el estado del rec
 
 ---
 
-## 🖥️ Comunicación con la Interfaz de Monitoreo
+## Comunicación con la Interfaz de Monitoreo
 
 El programa envía continuamente información a través del puerto serial utilizando comunicación UART a 9600 baudios.
 
@@ -352,7 +342,7 @@ Gracias a esta integración es posible visualizar en tiempo real el comportamien
 
 ---
 
-## 🔬 Optimización Implementada
+## Optimización Implementada
 
 Durante el desarrollo se realizaron diversas mejoras para aumentar la precisión y estabilidad del sistema:
 
@@ -363,6 +353,11 @@ Durante el desarrollo se realizaron diversas mejoras para aumentar la precisión
 * Comunicación serial en tiempo real con la interfaz de monitoreo.
 
 Estas optimizaciones permitieron obtener una detección más rápida, precisa y confiable durante las pruebas realizadas sobre diferentes superficies y condiciones de iluminación.
+
+## VIDEO FUNCIONAMIENTO:
+
+
+
 
 
 ## CODIGO PYTHON-STREAMLIT
@@ -768,7 +763,7 @@ time.sleep(0.02)
 st.rerun()
 
 ```
-# 🖥️ Sistema de Monitoreo e Interfaz Gráfica
+# Sistema de Monitoreo e Interfaz Gráfica
 
 Como complemento al sistema embebido desarrollado en Arduino, se implementó una interfaz gráfica utilizando Python y Streamlit con el objetivo de visualizar en tiempo real el comportamiento del vehículo autónomo y proporcionar una herramienta interactiva para comprender el funcionamiento del proyecto.
 
@@ -776,7 +771,7 @@ Esta aplicación actúa como un puente entre el hardware y el usuario, permitien
 
 ---
 
-# 🔗 Comunicación entre Arduino y Python
+# Comunicación entre Arduino y Python
 
 La comunicación entre el vehículo y la interfaz se realiza mediante comunicación serial a través del puerto COM.
 
@@ -792,7 +787,7 @@ Gracias a esta comunicación bidireccional es posible monitorear el comportamien
 
 ---
 
-# 🎨 Visualización de Colores en Tiempo Real
+# Visualización de Colores en Tiempo Real
 
 Una de las principales funciones de la interfaz consiste en mostrar el último color identificado por el sensor TCS3200.
 
@@ -829,7 +824,7 @@ Este mecanismo permite una supervisión continua del vehículo durante las prueb
 
 ---
 
-# 🤖 Chatbot Informativo Integrado
+# Chatbot Informativo Integrado
 
 Además del monitoreo visual, la aplicación incorpora un chatbot educativo diseñado para responder preguntas relacionadas con el proyecto.
 
@@ -850,7 +845,7 @@ El usuario puede seleccionar una pregunta desde un menú desplegable y obtener u
 
 ---
 
-# 📚 Función Educativa del Chatbot
+# Función Educativa del Chatbot
 
 El chatbot fue incorporado con fines académicos y de divulgación tecnológica.
 
@@ -865,7 +860,7 @@ De esta manera, el sistema no solo realiza tareas de detección y navegación, s
 
 ---
 
-# 🚀 Beneficios de la Interfaz
+# Beneficios de la Interfaz
 
 La implementación de la interfaz desarrollada en Python y Streamlit aporta múltiples ventajas al proyecto:
 
@@ -879,6 +874,5 @@ La implementación de la interfaz desarrollada en Python y Streamlit aporta múl
 
 Gracias a esta integración, el vehículo autónomo no solo es capaz de detectar colores y ejecutar movimientos, sino también de comunicar su estado y funcionamiento de forma clara, visual e intuitiva.
 
-
-## FUNCIONAMIENTO:
+## VIDEO FUNCIONAMIENTO:
 
