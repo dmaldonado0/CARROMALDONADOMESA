@@ -896,3 +896,7 @@ Gracias a esta integración, el vehículo autónomo no solo es capaz de detectar
 ## VIDEO FUNCIONAMIENTO:
 
 https://unipanamericanaeduco-my.sharepoint.com/:f:/g/personal/danielamaldonado_ucompensar_edu_co/IgD0dz7WId3BQb2n8sBWqj1KAdguYiyJP1YMI7jyml-FJnM?e=yju6PV
+
+# Conclusión
+
+El desarrollo de este proyecto permitió diseñar e implementar exitosamente un carro autónomo capaz de detectar colores y ejecutar acciones específicas mediante la integración de un sensor TCS3200, un Arduino UNO y un driver L298N. Asimismo, la incorporación de una interfaz gráfica desarrollada en Python con Streamlit facilitó el monitoreo en tiempo real del sistema y mejoró la interacción con el usuario a través de un chatbot informativo. Los resultados obtenidos demuestran que es posible construir soluciones robóticas funcionales y educativas utilizando tecnologías de bajo costo, aplicando de manera práctica conocimientos de electrónica, programación y automatización, y sentando las bases para futuras mejoras e implementaciones más avanzadas. 
